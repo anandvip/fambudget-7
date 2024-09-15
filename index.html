@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Family Budget Tracker</title>
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header Section -->
+        <header>
+            <h1>Family Budget Tracker</h1>
+        </header>
+        <!-- Family Member Selection -->
+        <section id="family-selection" class="card">
+            <h2>Select Family Member</h2>
+            <select id="family-member-select">
+                <option value="">Select a family member</option>
+            </select>
+            <button id="add-family-member">Add New Member</button>
+        </section>
+        <!-- Budget Information -->
+        <section id="budget-info" class="card">
+            <h2>Budget Information</h2>
+            <label for="balance-input">Starting Balance:</label>
+            <input type="number" id="balance-input" placeholder="Enter starting balance">
+            <label for="budget-timeframe">Budget Timeframe:</label>
+            <select id="budget-timeframe">
+                <option value="7">1 Week</option>
+                <option value="14">2 Weeks</option>
+                <option value="30">1 Month</option>
+                <option value="90">3 Months</option>
+                <option value="180">6 Months</option>
+                <option value="365">1 Year</option>
+            </select>
+            <button id="set-budget" disabled>Set Budget</button>
+            <button id="reset-budget" disabled>Reset Budget</button>
+            <p>Total Budget: <span id="total-budget">₹0.00</span></p>
+            <p>Daily Limit: <span id="daily-limit">₹0.00</span></p>
+        </section>
+        <!-- Expense Addition -->
+        <section id="add-expense-section" class="card">
+            <h2>Add Expense</h2>
+            <label for="expense-amount">Expense Amount:</label>
+            <input type="number" id="expense-amount" placeholder="Enter expense amount">
+            <label for="expense-category">Category:</label>
+            <select id="expense-category">
+                <option value="">Select category</option>
+            </select>
+            <button id="add-expense" disabled>Add Expense</button>
+        </section>
+        <!-- Expense Summary -->
+        <section id="expense-summary" class="card">
+            <h2>Current Status</h2>
+            <p>Remaining Balance: <span id="remaining-balance">₹0.00</span></p>
+            <p>Spent Today: <span id="spent-today">₹0.00</span></p>
+            <p>Days Without Spending: <span id="days-without-spending">0</span></p>
+            <p>Days Needed Without Spending to Meet Average: <span id="days-needed">0</span></p>
+        </section>
+        <!-- Weekly Report -->
+        <section id="weekly-report-section" class="card">
+            <h2>Weekly Report</h2>
+            <div id="weekly-report"></div>
+        </section>
+        <!-- Category Management -->
+        <section id="manage-categories" class="card">
+            <h2>Manage Categories</h2>
+            <label for="new-category">New Category:</label>
+            <input type="text" id="new-category" placeholder="Enter new category">
+            <button id="add-category" disabled>Add Category</button>
+            <button id="save-categories" disabled>Save Categories</button>
+        </section>
+        <!-- Export and Import Data -->
+        <section id="data-management" class="card">
+            <h2>Data Management</h2>
+            <button id="export-data">Export Data</button>
+            <button id="import-data">Import Data</button>
+            <input type="file" id="import-file" accept=".json" style="display: none;">
+        </section>
+    </div>
+    <!-- Add Member Modal -->
+    <div id="add-member-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Add New Family Member</h2>
+            <label for="new-member-name">Name:</label>
+            <input type="text" id="new-member-name" placeholder="Enter name">
+            <button id="submit-new-member">Add Member</button>
+        </div>
+    </div>
+    <!-- Toast Notifications -->
+    <div id="toast-container"></div>
+    <!-- JavaScript -->
+    <script src="app.js"></script>
+</body>
+</html>
